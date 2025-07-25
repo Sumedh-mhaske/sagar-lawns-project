@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sagar Lawns Payment Page</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body
+		class="bg-[#f7f0e6] min-h-screen flex items-center justify-center px-6 py-10"
+	>
+		<div
+			class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 space-y-8 text-center"
+		>
+			<h1 class="text-3xl md:text-4xl font-extrabold text-gray-800">
+				Secure Your Booking
+			</h1>
+
+			<p class="text-base md:text-lg text-gray-600 max-w-md mx-auto">
+				Please complete the payment by scanning the QR code or sending the
+				amount to the mobile number below.
+			</p>
+
+			<div class="flex flex-col items-center justify-center space-y-6">
+				<!-- QR Code -->
+				<img
+					src="qr.jpg"
+					alt="QR Code"
+					class="w-56 h-56 object-contain rounded-xl border border-gray-300 shadow-sm"
+				/>
+
+				<!-- OR -->
+				<div class="text-gray-400 font-medium text-sm tracking-wide">OR</div>
+
+				<!-- Mobile Number -->
+				<div class="text-center text-lg md:text-xl font-semibold text-gray-700">
+					Pay to Mobile Number:<br />
+					<a
+						href="tel:+919921470067"
+						class="text-blue-600 text-2xl md:text-3xl font-bold tracking-wide underline hover:text-blue-800 transition duration-200"
+					>
+						+91 9921470067
+					</a>
+				</div>
+			</div>
+
+			<!-- Note -->
+			<p class="text-sm text-gray-500 italic mt-4">
+				After successful payment, click the button below to confirm your
+				booking.
+			</p>
+
+			<!-- Button -->
+			<div class="pt-2">
+				<button
+					id="confirmBtn"
+					class="w-full bg-green-600 hover:bg-green-700 text-white text-lg font-medium py-3 px-6 rounded-xl transition-all duration-300"
+				>
+					I Have Paid
+				</button>
+			</div>
+		</div>
+
+		<script>
+			document
+				.getElementById("confirmBtn")
+				.addEventListener("click", function () {
+					alert(
+						"Thank you! Your payment has been received. We’ll confirm your booking shortly."
+					);
+				});
+		</script>
+	</body>
+</html>

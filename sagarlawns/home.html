@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/Logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="src/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+    <script defer src="scripts/script.js"></script>
+    <script defer src="scripts/chatBot.js"></script>
+    <script defer src="scripts/testimonials.js"></script>
+    <title>Sagar Lawns</title>
+  </head>
+  <body class="bg-[#f7f0e6] font-[bree_serif]">
+    <!-- Chatbot Icon -->
+    <div
+      id="chatbot-icon"
+      class="fixed right-5 bottom-5 z-50 cursor-pointer rounded-full bg-green-600 p-4 shadow-lg transition-transform hover:scale-110"
+    >
+      <i class="fa-solid fa-comments text-xl text-white"></i>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div
+      id="chatbot-window"
+      class="fixed right-5 bottom-16 z-[99999] hidden w-80 rounded-lg bg-white p-4 shadow-lg"
+    >
+      <div class="flex justify-between border-b pb-2">
+        <h2 class="text-lg font-bold text-green-600">Sagar Lawns Chat Bot</h2>
+        <button id="close-chat" class="text-gray-600 hover:text-gray-800">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div
+        id="chat-content"
+        class="flex h-60 flex-col overflow-y-auto p-2 text-sm text-gray-800"
+      ></div>
+      <div class="mt-2 flex">
+        <input
+          id="chat-input"
+          type="text"
+          placeholder="Ask about Sagar Lawns..."
+          class="w-full rounded-l-md border p-2 text-sm outline-none focus:ring focus:ring-green-300"
+        />
+        <button
+          id="send-btn"
+          class="rounded-r-md bg-green-600 px-3 text-white hover:bg-green-700"
+        >
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Hero section -->
+    <div class="relative h-screen scroll-smooth" id="home">
+      <!-- Background Image -->
+      <div
+        class="lozad overlay-bg absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-all duration-1000"
+        data-src-mobile="/assets/mobile-bg.png"
+        data-src-desktop="/assets/background.png"
+      ></div>
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-[#00000030]"></div>
+
+      <!-- Enhanced Navbar with Background Color -->
+      <header class="relative z-10 bg-gradient-to-r from-purple-700 via-pink-600 to-red-500 text-white shadow-md">
+        <nav class="flex h-16 items-center justify-between px-5 lg:gap-8">
+          <!-- Logo -->
+          <a class="w-36 lg:w-40" href="#home">
+            <img src="assets/Logo.png" loading="lazy" alt="logo" />
+          </a>
+
+          <!-- Navigation Links -->
+          <div
+            class="dropdown-menu fixed -top-full left-0 flex w-full flex-col items-center gap-6 py-4 text-lg font-semibold transition-all duration-500 max-lg:bg-gradient-to-b max-lg:from-purple-700 max-lg:via-pink-600 max-lg:to-red-500 lg:static lg:flex-row lg:justify-between"
+          >
+            <ul
+              class="flex flex-col items-center gap-6 text-white lg:flex-row lg:gap-8"
+              >
+              <li>
+                <a class="hover:text-paper-100" href="#aboutus">About us</a>
+              </li>
+              <li>
+                <a class="hover:text-paper-100" href="#services">Services</a>
+              </li>
+              <li>
+                <a class="hover:text-paper-100" href="#imagegallery"
+                  >Image Gallery</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-paper-100" href="#testimonials"
+                  >Testimonials</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-paper-100" href="#contactus">Contact us</a>
+              </li>
+            </ul>
+
+            <!-- Logout Button -->
+            <div class="flex flex-col items-center gap-6">
+              <a
+                href="logout.html"
+                rel="logout"
+                class="logout-btn bg-black text-red-600 hover:bg-yellow-300 hover:text-black rounded-lg px-4 py-2 transition duration-300"
+              >
+                Logout
+              </a>
+            </div>
+          </div>
+
+          <!-- Toggle Button for Mobile -->
+          <div class="toggle-button lg:hidden text-white">
+            <i class="toggle-icon fa-solid fa-bars fa-xl"></i>
+          </div>
+        </nav>
+      </header>
+
+      
+
+      <!-- Hero section -->
+      <section
+        class="overlay-text relative mt-6 text-gray-100 bg-cover bg-center bg-no-repeat text-center"
+        style="background-image: url('Images/background.png');"
+        >
+
+        <!-- Hero Section Title -->
+        <h1
+          class="pt-24 text-5xl sm:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-white to-yellow-400 drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] tracking-widest italic animate-fade-in opacity-0 translate-y-10 transition-all duration-1000 delay-200"
+          style="font-family: 'Cinzel', serif;"
+        >
+          <span class="drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)]">SAGAR</span>
+          <span class="text-primary-50 drop-shadow-[0_2px_6px_rgba(255,255,255,0.8)]">LAWNS</span>
+        </h1>
+
+
+
+        <p
+          class="mt-6 mb-8 translate-y-5 text-xl opacity-0 transition-all duration-1000 sm:mb-12 font-[Playfair_Display] italic text-center text-slate-100 bg-gray-900 px-6 py-4 rounded-xl tracking-wide leading-relaxed shadow-lg"
+        >
+          A beautiful place to celebrate
+          <br class="hidden md:inline lg:hidden" />
+          in the presence of your near and dear ones.
+        </p>
+
+  
+        <!-- Hero content -->
+        <div
+          class="relative z-10 container mx-auto flex flex-col justify-center p-6 sm:py-12 lg:flex-row lg:justify-between lg:py-24"
+        >
+        <div
+          class="flex flex-col justify-center rounded-sm p-6 text-center lg:max-w-md lg:text-left xl:max-w-lg">
+
+          <div
+            class="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-center sm:space-y-0 sm:space-x-4 lg:justify-start">
+            <a
+              rel="book now page"
+              href="book.html"
+              class="hover:bg-primary-100 translate-y-10 rounded bg-gradient-to-r from-green-600 via-green-500 to-green-400 px-8 py-3 text-lg font-semibold text-gray-900 opacity-0 transition-all delay-200 duration-1000"
+              >BOOK NOW</a
+            >
+            <a
+              rel="Image Gallery"
+              href="#imagegallery"
+              class="hover:bg-primary-100 translate-y-10 rounded bg-gradient-to-r from-green-600 via-green-500 to-green-400 px-8 py-3 text-lg font-semibold text-gray-900 opacity-0 transition-all delay-200 duration-1000"
+              >Image Gallery</a
+            >
+          </div>
+        </div>
+          <div
+            class="mt-8 flex h-72 items-center justify-center p-6 sm:h-80 lg:mt-0 lg:h-96 xl:h-112 2xl:h-128"
+          ></div>
+        </div>
+    </section>
+
+
+
+      <!-- Stats Counter -->
+      <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+        <svg
+          class="w-full h-4"
+          viewBox="0 0 1440 40"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fb923c" />
+              <stop offset="50%" stop-color="#ec4899" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#sunsetGradient)"
+            d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div
+        class="absolute left-1/2 w-11/12 -translate-x-1/2 translate-y-28 rounded-xl border border-white/20 bg-gradient-to-r from-green-600 via-green-500 to-green-400 px-3 py-5 shadow-2xl md:w-3/4 lg:px-6 lg:py-8"
+      >
+      
+        <div class="flex flex-wrap justify-between text-center text-white">
+          <div class="flex w-1/4 min-w-[70px] flex-col items-center space-y-1">
+            <div
+              class="text-xl font-extrabold text-green-200 drop-shadow-[0_0_15px_rgba(144,238,144,0.9)] sm:text-5xl"
+            >
+              <span class="counter" data-target="500">0</span>+
+            </div>
+            <p class="text-xs font-medium opacity-90 sm:text-sm">
+              Total Events Hosted
+            </p>
+          </div>
+          <div class="flex w-1/4 min-w-[70px] flex-col items-center space-y-1">
+            <div
+              class="text-xl font-extrabold text-green-200 drop-shadow-[0_0_15px_rgba(144,238,144,0.9)] sm:text-5xl"
+            >
+              <span class="counter" data-target="10000">0</span>+
+            </div>
+            <p class="text-xs font-medium opacity-90 sm:text-sm">
+              Happy Clients
+            </p>
+          </div>
+          <div class="flex w-1/4 min-w-[70px] flex-col items-center space-y-1">
+            <div
+              class="text-xl font-extrabold text-green-200 drop-shadow-[0_0_15px_rgba(144,238,144,0.9)] sm:text-5xl"
+            >
+              <span class="counter" data-target="20">0</span>+
+            </div>
+            <p class="text-xs font-medium opacity-90 sm:text-sm">
+              Years of Experience
+            </p>
+          </div>
+          <div class="flex w-1/4 min-w-[70px] flex-col items-center space-y-1">
+            <div
+              class="text-xl font-extrabold text-green-200 drop-shadow-[0_0_15px_rgba(144,238,144,0.9)] sm:text-5xl"
+            >
+              <span class="counter" data-target="2000">0</span>+
+            </div>
+            <p class="text-xs font-medium opacity-90 sm:text-sm">
+              Seating Capacity
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About us paragraph -->
+      <section
+        class="m-4 scroll-smooth pt-50 text-gray-800 md:m-8 lg:pt-40"
+        id="aboutus"
+        >
+        <div class="relative mx-auto max-w-5xl px-6 pt-50 lg:px-12">
+          <!-- Grid Layout -->
+          <div class="mt-10 grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+            <!-- Left: Image -->
+            <div
+              class="translate-y-6 opacity-0 transition-all duration-700 ease-out"
+            >
+              <img
+                loading="lazy"
+                src="Images/background.png"
+                alt="Wedding Venue"
+                class="w-full rounded-2xl shadow-lg"
+              />
+            </div>
+
+            <!-- Right: Text Content -->
+            <div
+              class="translate-y-6 opacity-0 transition-all duration-700 ease-out"
+            >
+              <h3 class="text-2xl font-semibold text-gray-800">
+                A Dream Venue for Your Special Day
+              </h3>
+              <p class="mt-4 leading-relaxed text-gray-600">
+                Our wedding lawn is a perfect blend of elegance and nature,
+                designed to create unforgettable memories. Surrounded by lush
+                greenery and breathtaking views, we provide a magical setting for
+                your special moments.
+              </p>
+            </div>
+
+            <!-- Left: Text Content -->
+            <div
+              class="translate-y-6 opacity-0 transition-all duration-700 ease-out"
+            >
+              <h3 class="text-2xl font-semibold text-gray-800">
+                Experience Elegance & Luxury
+              </h3>
+              <p class="mt-4 leading-relaxed text-gray-600">
+                With years of experience, our expert team ensures that every
+                detail is meticulously crafted to perfection. Our goal is to make
+                your wedding day stress-free and magical.
+              </p>
+            </div>
+
+            <!-- Right: Image -->
+            <div
+              class="translate-y-6 opacity-0 transition-all duration-700 ease-out"
+            >
+              <img
+                loading="lazy"
+                src="assets/about-us-bg.jpg"
+                alt="Wedding Decoration"
+                class="w-full rounded-2xl shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <!-- Ultra-Slim Sunset Wave Divider -->
+    <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+      <svg
+        class="w-full h-4"
+        viewBox="0 0 1440 40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fb923c" />
+            <stop offset="50%" stop-color="#ec4899" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#sunsetGradient)"
+          d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+        ></path>
+      </svg>
+    </div>
+
+
+
+
+    <!-- Services section -->
+    <section
+      class="m-4 scroll-smooth pt-16 text-gray-800 md:m-8 lg:pt-20"
+      id="services"
+    >
+
+      <div class="container mx-auto my-6 space-y-2 p-4 text-center">
+        <h2 class="text-5xl font-bold">Our Services</h2>
+        <p class="text-gray-600">We provide best services to you</p>
+      </div>
+      <div
+        class="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/Hall.svg"
+            alt="Hall icon"
+          />
+          <h3 class="my-3 text-3xl font-semibold">Lawn & Banquet Hall</h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>
+              Spacious lawn and banquet hall available for all types of events
+            </p>
+            <p>Beautifully maintained greenery and elegant indoor setups</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/catering_services.svg"
+            alt="catering services icon"
+          />
+          <h3 class="my-3 text-3xl font-semibold">Catering Services</h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>Both vegetarian and non-vegetarian catering allowed</p>
+            <p>
+              Separate designated area for food preparation (no in-house food
+              service)
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/decoration_lighting.svg"
+            alt="lighting icon"
+          />
+          <h3 class="my-3 text-3xl font-semibold">Decoration & Lighting</h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>In-house decoration and lighting services</p>
+            <p>
+              No outside decorators allowed to maintain quality and consistency
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/changing_room.svg"
+            alt="changing rooms icon"
+          />
+          <h3 class="my-3 text-3xl font-semibold">Changing Rooms</h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>Well-furnished and comfortable changing rooms available</p>
+            <p>Separate rooms for bride, groom, and guests</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/parking.svg"
+            alt="parking icon"
+          />
+          <h3 class="my-3 text-center text-3xl font-semibold">
+            Seating & Parking Facilities
+          </h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>Large and well-organized seating arrangements for guests</p>
+            <p>Spacious and secure parking area for hassle-free experience</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center p-4">
+          <img
+            loading="lazy"
+            class="h-12 w-12"
+            src="SVGs/events.svg"
+            alt="Multi-Event hosting icon"
+          />
+          <h3 class="my-3 text-3xl font-semibold">Multi-Event Hosting</h3>
+          <div class="space-y-1 text-center leading-tight">
+            <p>
+              Venue available for weddings, receptions, corporate events,
+              birthdays, and more
+            </p>
+            <p>Night events are allowed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ultra-Slim Sunset Wave Divider -->
+    <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+      <svg
+        class="w-full h-4"
+        viewBox="0 0 1440 40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fb923c" />
+            <stop offset="50%" stop-color="#ec4899" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#sunsetGradient)"
+          d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+        ></path>
+      </svg>
+    </div>
+
+
+
+    <!-- Images -->
+    <section
+      class="m-4 scroll-smooth pt-16 text-gray-800 md:m-8 lg:pt-20"
+      id="imagegallery"
+    >
+      <h1 class="text-center text-5xl font-bold">Event Gallery</h1>
+      <h5 class="pt-3 pb-6 text-center text-2xl font-semibold">
+        Events We Have Flawlessly Executed
+      </h5>
+
+      <!-- First row -->
+      <div class="relative w-full overflow-hidden py-5">
+        <div class="animate-loop-scroll-left flex w-max gap-4">
+          <!-- Original Set -->
+          <div class="flex gap-4">
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img6.jpg"
+              alt="Image 1"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img7.jpg"
+              alt="Image 2"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img8.jpg"
+              alt="Image 3"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img9.jpg"
+              alt="Image 4"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img10.jpg"
+              alt="Image 5"
+              loading="lazy"
+            />
+          </div>
+          <!-- Duplicated Set for Infinite Scroll -->
+          <div class="flex gap-4">
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img6.jpg"
+              alt="Image 1"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img7.jpg"
+              alt="Image 2"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img8.jpg"
+              alt="Image 3"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img9.jpg"
+              alt="Image 4"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img10.jpg"
+              alt="Image 5"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Second row -->
+      <div class="relative mt-5 w-full overflow-hidden py-5">
+        <div class="animate-loop-scroll-right flex w-max gap-4">
+          <!-- Original Set -->
+          <div class="flex gap-4">
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img1.jpg"
+              alt="Image 6"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img2.jpg"
+              alt="Image 7"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img3.jpg"
+              alt="Image 8"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img4.jpg"
+              alt="Image 9"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img5.jpg"
+              alt="Image 10"
+              loading="lazy"
+            />
+          </div>
+          <!-- Duplicated Set for Infinite Scroll -->
+          <div class="flex gap-4">
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img1.jpg"
+              alt="Image 6"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img2.jpg"
+              alt="Image 7"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img3.jpg"
+              alt="Image 8"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img4.jpg"
+              alt="Image 9"
+              loading="lazy"
+            />
+            <img
+              class="h-64 w-96 object-cover"
+              src="Images/Img5.jpg"
+              alt="Image 10"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ultra-Slim Sunset Wave Divider -->
+    <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+      <svg
+        class="w-full h-4"
+        viewBox="0 0 1440 40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fb923c" />
+            <stop offset="50%" stop-color="#ec4899" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#sunsetGradient)"
+          d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+        ></path>
+      </svg>
+    </div>
+
+
+
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="scroll-smooth bg-[#fffaf5] py-16">
+      <div class="mb-12 text-center">
+        <h2 class="text-primary-50 text-xl font-semibold">Not sure yet?</h2>
+        <h3 class="text-3xl font-bold text-[#070F2B]">
+          Experience the Grandeur: Hear From Those Who've Celebrated With Us.
+        </h3>
+      </div>
+
+      <div class="relative mx-auto max-w-5xl overflow-hidden">
+        <!-- Slider Container -->
+        <div
+          class="relative flex w-full transition-transform duration-700 ease-in-out"
+          id="slider"
+        >
+          <!-- Slide 1 -->
+          <div
+            class="slide flex w-full shrink-0 flex-col items-center p-8 text-center"
+          >
+            <h5 class="mb-4 text-2xl font-semibold text-gray-900">
+              The Perfect Venue for Our Family Celebration
+            </h5>
+            <blockquote class="max-w-2xl text-lg text-gray-600 italic">
+              We recently hosted a large family reunion at Sagar Lawns, and it
+              was an absolute success. The best venue for the celebrations.
+            </blockquote>
+            <address class="mt-6 flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="assets/user.png"
+                alt="user logo"
+                class="row-span-2 w-[3rem] rounded-full"
+              />
+              <div>
+                <h6 class="text-lg font-semibold">Aarav Lynn</h6>
+                <p class="text-gray-500">San Francisco, USA</p>
+              </div>
+            </address>
+          </div>
+
+          <!-- Slide 2 -->
+          <div
+            class="slide flex w-full shrink-0 flex-col items-center p-8 text-center"
+          >
+            <h5 class="mb-4 text-2xl font-semibold text-gray-900">
+              Our Dream Wedding Came True!
+            </h5>
+            <blockquote class="max-w-2xl text-lg text-gray-600 italic">
+              The lawn were stunning, and the hall was perfect. It was
+              everything we hoped for, and more!. And therefore our weeding was
+              memorable.
+            </blockquote>
+            <address class="mt-6 flex items-center gap-4">
+              <img
+                loading="lazy"
+                src="assets/user.png"
+                alt="user logo"
+                class="row-span-2 w-[3rem] rounded-full"
+              />
+              <div>
+                <h6 class="text-lg font-semibold">Miyah Miles</h6>
+                <p class="text-gray-500">London, UK</p>
+              </div>
+            </address>
+          </div>
+
+          <!-- Slide 3 -->
+          <div
+            class="slide flex w-full shrink-0 flex-col items-center p-8 text-center"
+          >
+            <h5 class="mb-4 text-2xl font-semibold text-gray-900">
+              The Perfect Setting for Our Special Day!
+            </h5>
+            <blockquote class="max-w-2xl text-lg text-gray-600 italic">
+              The lawn was beautifully maintained, and the hall was so elegant.
+              It created the perfect atmosphere for our wedding.
+            </blockquote>
+            <address class="mt-6 flex items-center gap-5">
+              <img
+                loading="lazy"
+                src="assets/user.png"
+                alt="user logo"
+                class="row-span-2 w-[3rem] rounded-full"
+              />
+              <div>
+                <h6 class="text-lg font-semibold">Francisco Gomes</h6>
+                <p class="text-gray-500">Lisbon, Portugal</p>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button
+          class="absolute top-1/2 left-4 -translate-y-1/2 transform cursor-pointer rounded-full bg-white p-3 text-2xl text-gray-800 shadow-lg"
+          id="prevBtn"
+        >
+          &#8592;
+        </button>
+        <button
+          class="absolute top-1/2 right-4 -translate-y-1/2 transform cursor-pointer rounded-full bg-white p-3 text-2xl text-gray-800 shadow-lg"
+          id="nextBtn"
+        >
+          &#8594;
+        </button>
+
+        <!-- Dots -->
+        <div
+          class="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-3"
+          id="dotsContainer"
+        ></div>
+      </div>
+    </section>
+    <!-- Ultra-Slim Sunset Wave Divider -->
+    <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+      <svg
+        class="w-full h-4"
+        viewBox="0 0 1440 40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fb923c" />
+            <stop offset="50%" stop-color="#ec4899" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#sunsetGradient)"
+          d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+        ></path>
+      </svg>
+    </div>
+
+
+
+    <!-- Contact Section -->
+      <div
+      class="mx-auto grid max-w-screen-xl grid-cols-1 gap-8 scroll-smooth rounded-lg bg-gray-100 px-8 py-16 text-gray-800 md:grid-cols-2 md:px-12 lg:px-16 xl:px-64"
+      id="contactus"
+      >
+      <!-- Left Side (Info + Image) -->
+      <div class="flex flex-col justify-between">
+        <div class="space-y-4">
+          <h2 class="text-4xl leading-tight font-bold lg:text-5xl">Let’s Talk!</h2>
+          <p class="text-gray-600">
+            Planning a wedding or event? Reach out to us to make it unforgettable!
+          </p>
+          <div class="space-y-2 text-gray-700">
+            <p>
+              <strong>📍 Address:</strong> Sagar Lawns, beside Sanya Motors,
+              MIDC Industrial Area, Mukundwadi, Chh. Sambhajinagar, Maharashtra
+              431003
+            </p>
+            <p>
+              <strong>📞 Phone:</strong>
+              <a href="tel:9325221593" class="text-violet-500 hover:underline">+91-9325221593</a>
+            </p>
+            <p>
+              <strong>✉️ Email:</strong>
+              <a href="mailto:info@sagarlawns.com" class="text-violet-500 hover:underline">info@sagarlawns.com</a>
+            </p>
+          </div>
+        </div>
+        <img
+          loading="lazy"
+          src="SVGs/Contact.svg"
+          alt="Contact"
+          class="h-52 p-6 md:h-64"
+        />
+      </div>
+
+      <!-- Right Side (Form) -->
+      <form action="contact.php" method="POST" class="space-y-6 flex flex-col justify-center">
+        <div class="flex flex-col">
+          <label for="name" class="text-sm mb-1">Full Name</label>
+          <input
+            id="name"
+            name="name" 
+            type="text"
+            placeholder="Your Name"
+            class="w-full rounded border border-gray-300 bg-white p-3"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="phone" class="text-sm mb-1">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Phone"
+            class="w-full rounded border border-gray-300 bg-white p-3"
+            required
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="enquiry" class="text-sm mb-1">Type of Enquiry</label>
+          <select
+            id="enquiry"
+            name="enquiry"
+            class="w-full rounded border border-gray-300 bg-white p-3"
+            required
+          >
+            <option value="">-- Select Event Type --</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Reception">Reception</option>
+            <option value="Birthday Party">Birthday Party</option>
+            <option value="Corporate Event">Corporate Event</option>
+            <option value="Engagement / Haldi">Engagement / Haldi</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Other">Other</option>
+          </select>
+          </div>
+          <div class="flex flex-col">
+            <label for="message" class="text-sm mb-1">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Tell us more about your event..."
+              class="w-full rounded border border-gray-300 bg-white p-3"
+            ></textarea>
+          </div>
+        <button
+          type="submit"
+            class="w-full rounded bg-gradient-to-r from-green-600 via-green-500 to-green-400 p-3 text-sm font-bold tracking-wide text-gray-800 uppercase"
+          >
+          Contact Us
+        </button>
+      </form>
+    </div>
+    <!-- Ultra-Slim Sunset Wave Divider -->
+    <div class="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600">
+      <svg
+        class="w-full h-4"
+        viewBox="0 0 1440 40"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="sunsetGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fb923c" />
+            <stop offset="50%" stop-color="#ec4899" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#sunsetGradient)"
+          d="M0,10 C360,30 1080,0 1440,20 L1440,40 L0,40 Z"
+        ></path>
+      </svg>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-6 text-gray-100" id="footer">
+      <div
+        class="container mx-auto grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 md:grid-cols-4"
+      >
+        <!-- Quick Links -->
+        <div class="flex flex-col space-y-4">
+          <h2 class="font-medium">Quick Links</h2>
+          <div class="flex flex-col space-y-2 text-sm text-gray-400">
+            <a rel="home" href="#home">Home</a>
+            <a rel="about us" href="#aboutus">About Us</a>
+            <a rel="services" href="#services">Services</a>
+            <a rel="photo gallery" href="#imagegallery">Gallery</a>
+            <a rel="testimonials" href="#testimonials">Testimonials</a>
+            <a rel="contact" href="#contactus">Contact Us</a>
+          </div>
+        </div>
+
+        <!-- Our Services -->
+        <div class="flex flex-col space-y-4">
+          <h2 class="font-medium">Our Services</h2>
+          <div class="flex flex-col space-y-2 text-sm text-gray-400">
+            <a href="#">Lawn & Banquet Hall</a>
+            <a href="#">Catering Services</a>
+            <a href="#">Decoration & Lighting</a>
+            <a href="#">Seating & Parking</a>
+            <a href="#">Changing Rooms</a>
+          </div>
+        </div>
+
+        <!-- Gallery & Events -->
+        <div class="flex flex-col space-y-4">
+          <h2 class="font-medium">Gallery & Events</h2>
+          <div class="flex flex-col space-y-2 text-sm text-gray-400">
+            <a href="#">Event Highlights</a>
+            <a href="#">Wedding Photography</a>
+            <a href="#">Corporate Events</a>
+          </div>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="flex flex-col space-y-4">
+          <h2 class="font-medium">Contact Us</h2>
+          <div class="flex flex-col space-y-2 text-sm text-gray-400">
+            <p>
+              📍 Sagar Lawns, beside Sanya Motors, MIDC Industrial Area,
+              Mukundwadi, Chh. Sambhajinagar, Maharashtra 431003
+            </p>
+            <a href="tel:9325221593">📞 +91-9325221593</a>
+            <a href="mailto:info@sagarlawns.com">📧 info@sagarlawns.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center px-6 pt-12 text-sm">
+        <span class="text-gray-400"
+          >© 2025 Sagar Lawns. All Rights Reserved.</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
